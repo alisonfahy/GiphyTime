@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 // console.log("scriptSource");
 let animals = ["cat", "dog", "mouse", "raccoon"];
 
@@ -19,32 +21,34 @@ let buttonFactory = function () {
        
     }
 }
-$(document).ready(function () {
+
     buttonFactory();
-})
+
 
 // adding an animal with the form:
 $("#addAnimal").on("click", function(event) {
+    console.log("HI", $("#animal-input").val());
+
     // Preventing the buttons default behavior when clicked (which is submitting a form)
     event.preventDefault();
     // This line grabs the input from the textbox
-    var animalAdd = $("#addAnimal").val().trim();
+    var animalAdd = $("#animal-input").val().trim();
 
     // Adding the animal from the textbox to our array
     animals.push(animalAdd);
-    
+    console.log(animals)
     
     // $(document).ready(function () {
         buttonFactory();  
     // })
     
-    console.log(animals);
+    // 
   });
-  $(document).on("click", ".allButtons", alertAnimalName);
+//   $(document).on("click", ".allButtons", alertAnimalName);
 
-  $(document).ready(function () {
+//   $(document).ready(function () {
       
-})
+// })
   // Calling the buttonFactory function to display the intial buttons
   buttonFactory();
 
@@ -115,3 +119,4 @@ $(document).on("click", ".gifs", function () {
 
 });
 });
+})
